@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RevealMyRoom — See your kitchen remodeled with AI, free</title>
+<meta name="description" content="Upload one photo of your kitchen and get a free, AI-generated photorealistic remodel preview. Then book a free in-home consultation with a trusted Knoxville, Tennessee remodeler.">
+<meta name="robots" content="index, follow">
+<style>
+  :root{
+    --bg:#F4EEE2;
+    --surface:#FFFDF8;
+    --ink:#2C2420;
+    --ink-soft:#5F544A;
+    --accent:#B25430;
+    --accent-dark:#8C3F22;
+    --olive:#6F7A57;
+    --line:#E4D9C7;
+    --shadow:0 1px 2px rgba(44,36,32,.04),0 10px 28px rgba(44,36,32,.07);
+    --radius:14px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.wordmark{font-family:Georgia,"Times New Roman",serif;color:var(--ink);line-height:1.15;}
+  a{color:var(--accent-dark);}
+  a:focus-visible,button:focus-visible,input:focus-visible,
+  textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  .skip{position:absolute;left:-9999px;top:auto;}
+  .skip:focus{left:16px;top:12px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:8px;z-index:50;}
+
+  /* Header */
+  .topbar{height:5px;background:linear-gradient(90deg,var(--accent),#C9803E,var(--olive));}
+  header.site{background:var(--surface);border-bottom:1px solid var(--line);}
+  .head-row{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;max-width:var(--maxw);margin:0 auto;gap:16px;}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;}
+  .brand svg{flex:none;}
+  .wordmark{font-size:24px;font-weight:700;letter-spacing:.1px;}
+  .wordmark .accent{color:var(--accent);}
+  .head-cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:600;font-size:15px;padding:10px 18px;border-radius:10px;}
+  .head-cta:hover{background:var(--accent-dark);}
+
+  /* Hero */
+  .hero{padding:58px 0 40px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive);margin:0 0 14px;}
+  .hero h1{font-size:46px;margin:0 0 18px;}
+  .hero p.lead{font-size:20px;color:var(--ink-soft);margin:0 0 26px;max-width:34ch;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn-primary{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:700;font-size:17px;padding:14px 26px;border-radius:11px;border:none;cursor:pointer;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .free-note{font-size:15px;color:var(--ink-soft);}
+  .free-note strong{color:var(--ink);}
+  .hero-art{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow);padding:14px;}
+  .hero-art svg{display:block;width:100%;height:auto;border-radius:10px;}
+
+  /* Trust strip */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);}
+  .trust-row{display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:center;
+    padding:18px 22px;max-width:var(--maxw);margin:0 auto;font-size:15px;color:var(--ink-soft);}
+  .trust-row span{display:inline-flex;align-items:center;gap:8px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--olive);flex:none;}
+
+  /* Sections */
+  section.band{padding:64px 0;}
+  .section-head{text-align:center;max-width:38ch;margin:0 auto 40px;}
+  .section-head h2{font-size:34px;margin:0 0 10px;}
+  .section-head p{color:var(--ink-soft);margin:0;}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 24px;box-shadow:var(--shadow);}
+  .step-num{font-family:Georgia,serif;font-size:15px;font-weight:700;color:#fff;background:var(--accent);
+    width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .step h3{font-size:21px;margin:0 0 8px;}
+  .step p{margin:0;color:var(--ink-soft);font-size:16px;}
+
+  /* About */
+  .about{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about .wrap{max-width:62ch;text-align:center;}
+  .about h2{font-size:30px;margin:0 0 14px;}
+  .about p{color:var(--ink-soft);margin:0 auto 0;}
+
+  /* Form */
+  .form-band{padding:64px 0;}
+  .form-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow);padding:34px;max-width:640px;margin:0 auto;}
+  .form-card h2{font-size:30px;margin:0 0 6px;text-align:center;}
+  .form-card .sub{text-align:center;color:var(--ink-soft);margin:0 0 26px;font-size:16px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--ink);}
+  .field input{width:100%;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;
+    border:1px solid #D9CDB9;border-radius:10px;padding:12px 14px;}
+  .field input::placeholder{color:#A99C8B;}
+  .consent{display:flex;gap:12px;align-items:flex-start;background:#FBF6EC;border:1px solid var(--line);
+    border-radius:12px;padding:16px;margin:8px 0 20px;}
+  .consent input{margin-top:5px;width:20px;height:20px;flex:none;accent-color:var(--accent);}
+  .consent label{font-size:14px;line-height:1.55;color:var(--ink-soft);}
+  .form-card .btn-primary{width:100%;font-size:18px;}
+  .placeholder-note{text-align:center;font-size:13px;color:var(--ink-soft);margin:14px 0 0;}
+
+  /* SMS terms disclosure */
+  .sms-terms{max-width:640px;margin:22px auto 0;font-size:13px;line-height:1.6;color:var(--ink-soft);}
+  .sms-terms h3{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;}
+  .sms-terms p{margin:0 0 8px;}
+
+  /* Footer */
+  footer.site{background:var(--ink);color:#E9E0D3;padding:40px 0;}
+  footer.site .wrap{display:flex;flex-wrap:wrap;gap:18px 28px;justify-content:space-between;align-items:flex-start;}
+  footer.site .f-brand{font-family:Georgia,serif;font-size:20px;color:#fff;}
+  footer.site .f-brand span{color:#E3A06B;}
+  footer.site nav a{color:#E9E0D3;text-decoration:none;margin-right:20px;font-size:15px;}
+  footer.site nav a:hover{text-decoration:underline;}
+  footer.site .f-small{font-size:13px;color:#B9AC9A;margin-top:10px;width:100%;}
+  footer.site a.mail{color:#E3A06B;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;}
+    .hero h1{font-size:38px;}
+    .steps{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    body{font-size:17px;}
+    .hero{padding:40px 0 30px;}
+    .hero h1{font-size:32px;}
+    .head-cta{display:none;}
+    .grid2{grid-template-columns:1fr;}
+    .form-card{padding:24px 20px;}
+    section.band,.form-band{padding:48px 0;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"></div>
+
+<header class="site">
+  <div class="head-row">
+    <a class="brand" href="index.html" aria-label="RevealMyRoom home">
+      <svg width="34" height="34" viewBox="0 0 34 34" role="img" aria-hidden="true">
+        <path d="M5 16 L17 5 L29 16" fill="none" stroke="#B25430" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 15 L8 28 L26 28 L26 15" fill="none" stroke="#2C2420" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="14" y="20" width="6" height="8" fill="#B25430"/>
+      </svg>
+      <span class="wordmark">Reveal<span class="accent">MyRoom</span></span>
+    </a>
+    <a class="head-cta" href="#preview">Get my free preview</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Knoxville, Tennessee</span>
+          <h1>See your kitchen remodeled before you spend a dime.</h1>
+          <p class="lead">Upload one photo and get a photorealistic, AI-generated preview of your kitchen in the style you love — in seconds.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#preview">Get my free preview</a>
+            <span class="free-note"><strong>100% free</strong> for homeowners</span>
+          </div>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Before and after illustration of a kitchen remodel preview">
+            <defs>
+              <clipPath id="leftHalf"><polygon points="0,0 300,0 220,360 0,360"/></clipPath>
+              <clipPath id="rightHalf"><polygon points="300,0 520,0 520,360 220,360"/></clipPath>
+            </defs>
+            <!-- BEFORE side (muted) -->
+            <g clip-path="url(#leftHalf)">
+              <rect x="0" y="0" width="520" height="360" fill="#D9D2C6"/>
+              <rect x="0" y="232" width="520" height="128" fill="#C7BEAF"/>
+              <rect x="30" y="60" width="150" height="96" fill="#BBB1A1"/>
+              <rect x="30" y="232" width="150" height="18" fill="#A99E8C"/>
+              <rect x="210" y="60" width="120" height="96" fill="#BBB1A1"/>
+              <rect x="120" y="120" width="60" height="60" fill="#ADA290"/>
+            </g>
+            <!-- AFTER side (warm) -->
+            <g clip-path="url(#rightHalf)">
+              <rect x="0" y="0" width="520" height="360" fill="#F1E6D2"/>
+              <rect x="0" y="232" width="520" height="128" fill="#A9683D"/>
+              <rect x="0" y="232" width="520" height="14" fill="#8C5128"/>
+              <rect x="350" y="56" width="140" height="104" rx="6" fill="#3D6E63"/>
+              <rect x="365" y="70" width="46" height="76" fill="#4F857A"/>
+              <rect x="429" y="70" width="46" height="76" fill="#4F857A"/>
+              <circle cx="411" cy="108" r="3" fill="#EFE7D6"/>
+              <circle cx="429" cy="108" r="3" fill="#EFE7D6"/>
+              <rect x="245" y="200" width="70" height="40" rx="4" fill="#EFE7D6"/>
+              <rect x="430" y="252" width="34" height="60" fill="#C9A24B"/>
+            </g>
+            <!-- divider -->
+            <polygon points="300,0 308,0 228,360 220,360" fill="#FFFDF8"/>
+            <!-- labels -->
+            <rect x="22" y="22" width="86" height="28" rx="14" fill="rgba(44,36,32,.78)"/>
+            <text x="65" y="41" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#fff">Before</text>
+            <rect x="406" y="22" width="86" height="28" rx="14" fill="#B25430"/>
+            <text x="449" y="41" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#fff">After</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust">
+    <div class="trust-row">
+      <span><i class="dot"></i> Free for homeowners</span>
+      <span><i class="dot"></i> Local Knoxville remodelers</span>
+      <span><i class="dot"></i> No obligation</span>
+      <span><i class="dot"></i> Preview in seconds</span>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Three simple steps from photo to free in-home quote.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Upload a photo of your kitchen</h3>
+          <p>Snap a picture with your phone and send it our way — that's all we need to get started.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>See it remodeled in your style</h3>
+          <p>Our AI generates a photorealistic preview of your kitchen reimagined in the look you choose.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Get a free quote from a local remodeler</h3>
+          <p>Love what you see? Request a free, no-obligation in-home consultation with a trusted Knoxville remodeler.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="about">
+    <section class="band">
+      <div class="wrap">
+        <h2>A simpler start to your remodel</h2>
+        <p>RevealMyRoom is a Knoxville, Tennessee service that helps homeowners picture their dream kitchen before committing to anything. You get a realistic preview in seconds, and when you're ready, we connect you with a vetted local remodeler for a free in-home consultation. There's no cost and no obligation to homeowners.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- LEAD FORM -->
+  <section class="form-band" id="preview">
+    <div class="wrap">
+      <div class="form-card">
+        <h2>Get your free preview</h2>
+        <p class="sub">Tell us where to send your remodeled kitchen and free quote.</p>
+
+        <form name="lead" aria-label="Request a free kitchen preview">
+          <div class="grid2">
+            <div class="field">
+              <label for="first">First name</label>
+              <input id="first" name="first" type="text" autocomplete="given-name" placeholder="Jane">
+            </div>
+            <div class="field">
+              <label for="last">Last name</label>
+              <input id="last" name="last" type="text" autocomplete="family-name" placeholder="Doe">
+            </div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(865) 555-0142">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@example.com">
+          </div>
+          <div class="field">
+            <label for="zip">Zip code</label>
+            <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="37902">
+          </div>
+
+          <div class="consent">
+            <input id="sms-consent" name="sms-consent" type="checkbox">
+            <label for="sms-consent">By checking this box, I agree to receive text messages from RevealMyRoom about my kitchen remodel preview and free quote at the number provided, including via automated technology. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help.</label>
+          </div>
+
+          <button class="btn-primary" type="button">Get my free preview</button>
+          <p class="placeholder-note">This is a preview form — submissions are not yet active.</p>
+        </form>
+      </div>
+
+      <!-- SMS TERMS DISCLOSURE -->
+      <div class="sms-terms">
+        <h3>SMS Terms</h3>
+        <p><strong>Program:</strong> RevealMyRoom sends text messages about your kitchen remodel preview and free in-home quote, including appointment and follow-up messages.</p>
+        <p>Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to cancel at any time, or <strong>HELP</strong> for help. Carriers are not liable for delayed or undelivered messages.</p>
+        <p>See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a> for details.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="f-brand">Reveal<span>MyRoom</span></div>
+      <div class="f-small">Knoxville, Tennessee &middot; Free kitchen remodel previews for homeowners</div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a class="mail" href="mailto:support@revealmyroom.com">support@revealmyroom.com</a>
+    </nav>
+    <div class="f-small">&copy; 2026 RevealMyRoom. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
