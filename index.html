@@ -108,17 +108,8 @@
   .field input{width:100%;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;
     border:1px solid #D9CDB9;border-radius:10px;padding:12px 14px;}
   .field input::placeholder{color:#A99C8B;}
-  .consent{display:flex;gap:12px;align-items:flex-start;background:#FBF6EC;border:1px solid var(--line);
-    border-radius:12px;padding:16px;margin:8px 0 20px;}
-  .consent input{margin-top:5px;width:20px;height:20px;flex:none;accent-color:var(--accent);}
-  .consent label{font-size:14px;line-height:1.55;color:var(--ink-soft);}
   .form-card .btn-primary{width:100%;font-size:18px;}
   .placeholder-note{text-align:center;font-size:13px;color:var(--ink-soft);margin:14px 0 0;}
-
-  /* SMS terms disclosure */
-  .sms-terms{max-width:640px;margin:22px auto 0;font-size:13px;line-height:1.6;color:var(--ink-soft);}
-  .sms-terms h3{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;}
-  .sms-terms p{margin:0 0 8px;}
 
   /* Footer */
   footer.site{background:var(--ink);color:#E9E0D3;padding:40px 0;}
@@ -299,22 +290,9 @@
             <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="37902">
           </div>
 
-          <div class="consent">
-            <input id="sms-consent" name="sms-consent" type="checkbox">
-            <label for="sms-consent">By checking this box, I agree to receive text messages from RevealMyRoom about my kitchen remodel preview and free quote at the number provided, including via automated technology. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help.</label>
-          </div>
-
           <button class="btn-primary" type="button">Get my free preview</button>
           <p class="placeholder-note">This is a preview form — submissions are not yet active.</p>
         </form>
-      </div>
-
-      <!-- SMS TERMS DISCLOSURE -->
-      <div class="sms-terms">
-        <h3>SMS Terms</h3>
-        <p><strong>Program:</strong> RevealMyRoom sends text messages about your kitchen remodel preview and free in-home quote, including appointment and follow-up messages.</p>
-        <p>Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to cancel at any time, or <strong>HELP</strong> for help. Carriers are not liable for delayed or undelivered messages.</p>
-        <p>See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a> for details.</p>
       </div>
     </div>
   </section>
