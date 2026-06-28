@@ -135,6 +135,12 @@
     .form-card{padding:24px 20px;}
     section.band,.form-band{padding:48px 0;}
   }
+  /* SMS consent disclosure on the chat invitation card */
+  .sms-disclosure{margin-top:18px;padding:14px 16px;background:#FBF6EB;
+    border:1px solid var(--line);border-radius:10px;font-size:13px;
+    color:var(--ink-soft);line-height:1.55;text-align:left;}
+  .sms-disclosure a{color:var(--accent-dark);}
+  .sms-disclosure strong{color:var(--ink);}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
 </style>
 </head>
@@ -265,6 +271,14 @@
       <div class="form-card">
         <h2>Get your free preview</h2>
         <p class="sub">Chat with us to get started. Tap the chat button in the corner of your screen and we'll help you preview your kitchen and set up your free, no-obligation quote.</p>
+        <p class="sms-disclosure">
+          <strong>About text messages:</strong> Chat with us and opt in to receive text
+          messages about your kitchen project. Message and data rates may apply, message
+          frequency varies, and consent is not a condition of purchase. Reply
+          <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. See our
+          <a href="privacy.html">Privacy Policy</a> and
+          <a href="terms.html">Terms of Service</a>.
+        </p>
         <p class="placeholder-note">Prefer email? Reach us at <a href="mailto:support@revealmyroom.com">support@revealmyroom.com</a>.</p>
       </div>
     </div>
@@ -277,7 +291,9 @@
     <div>
       <div class="f-brand">Reveal<span>MyRoom</span></div>
       <div class="f-small">
-        Email: <a class="mail" href="mailto:support@revealmyroom.com">support@revealmyroom.com</a>
+        RevealMyRoom<br>
+        Email: <a class="mail" href="mailto:support@revealmyroom.com">support@revealmyroom.com</a><br>
+        Location: Knoxville, TN
       </div>
     </div>
     <nav aria-label="Footer">
